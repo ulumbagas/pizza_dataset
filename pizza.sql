@@ -16,6 +16,15 @@ FROM
 GROUP BY `Day`;
 
 SELECT 
+    EXTRACT(DAY FROM o.date) AS `Date`, SUM(od.quantity)
+FROM
+    `pizza.order_details` od
+        LEFT JOIN
+    `pizza.orders` o USING (order_id)
+GROUP BY `Date`
+ORDER BY `Date`;
+
+SELECT 
     EXTRACT(HOUR FROM `time`) AS Hour, SUM(quantity) AS Quantity
 FROM
     `pizza.order_details` od
