@@ -76,3 +76,19 @@ GROUP BY
   Hour
 ORDER BY
   Hour;
+
+-- Pizza name Revenue
+SELECT
+  pt.name as name, sum(od.quantity) as Total_Quantity, sum(od.quantity * p.price) as Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+left join 
+ `pizza.pizza_type` pt
+ON
+p.pizza_type_id = pt.pizza_type_id
+group by name
+order by Revenue;
