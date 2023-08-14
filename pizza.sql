@@ -35,6 +35,7 @@ ON
   od.pizza_id = p.pizza_id
 GROUP BY
   `Month`;
+  
 --show Date Total quantity and Revenue
 SELECT
   EXTRACT(Day
@@ -93,7 +94,7 @@ p.pizza_type_id = pt.pizza_type_id
 group by name
 order by Revenue;
 
--- Pizza name Revenue
+-- Pizza category Revenue
 SELECT
   pt.category as category, sum(od.quantity) as Total_Quantity, sum(od.quantity * p.price) as Revenue
 FROM
@@ -124,3 +125,23 @@ ON
 p.pizza_type_id = pt.pizza_type_id
 group by size
 order by Revenue;
+
+-- Summarizing Pizza name, Size, and Price
+SELECT
+  DISTINCT(pt.name) AS name,
+  p.size AS size,
+  p.price AS price
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+LEFT JOIN
+  `pizza.pizza_type` pt
+ON
+  p.pizza_type_id = pt.pizza_type_id;
