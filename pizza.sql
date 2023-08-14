@@ -145,3 +145,25 @@ LEFT JOIN
   `pizza.pizza_type` pt
 ON
   p.pizza_type_id = pt.pizza_type_id;
+
+-- Summarizing Pizza name, Size, and Revenue
+SELECT
+  pt.name AS name,
+  p.size AS size,
+  sum(od.quantity * p.price) AS Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+LEFT JOIN
+  `pizza.pizza_type` pt
+ON
+  p.pizza_type_id = pt.pizza_type_id
+group by name, size
+order by name;
