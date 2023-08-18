@@ -11,4 +11,5 @@ The pizza dataset comprises four tables:
 In total, there have been 48,620 transactions.
 <br/>
 ### Revenue and Quantity
+The first step in this analysis is to calculate the Total Revenue and Total Quantity from all transactions.
 
