@@ -79,7 +79,8 @@ GROUP BY
     <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/030e6095-6e04-46aa-87ab-62b06d737bd4"> 
 </p>
 <br/>
-From the analysis results, it can be observed that the highest sales occurred in the month of July, followed by May, and then trailed by March. In my opinion, there are several reasons that could possibly explain this phenomenon: <br/>
+From the analysis results, it can be observed that the highest sales occurred in the month of July with total revenue $ 72557, followed by May, and then trailed by March. In my opinion, there are several reasons that could possibly explain this phenomenon: <br/>
+
 1. Summer and Holidays: July is usually in the summertime in many places around the world. During summer, people are often more relaxed and gather together or celebrate events like school holidays. This can make more people want to order fast food like pizza. <br/>
 
 2. Weather and Social Activities: Warmer weather can also have an impact. Those months might have weather conditions that are more suitable for outdoor activities or social gatherings, which can increase the demand for fast food like pizza.
