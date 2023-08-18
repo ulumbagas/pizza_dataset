@@ -115,9 +115,10 @@ GROUP BY
 </p>
 <br/>
 
-Based on the analysis of the pizza dataset, Friday stands out as the day with the highest weekly sales, generating a revenue of $ 123,528 and total quantity 7478, here are the potential reasons <br/>
+Based on the analysis of the pizza dataset, Friday stands out as the day with the highest weekly sales, generating a revenue of $ 123,528 and total quantity 8242, here are the potential reasons <br/>
 1. Fridays are often associated with the start of the weekend, a time when people are more likely to relax and indulge in convenience foods like pizza. Many individuals might prefer to order in or dine out on Fridays as a way to unwind from the workweek and kick off the weekend. <br/>
 2. Fridays are a favorite day for social gatherings. People often spend time with friends, family, or coworkers after work. There could be events, meetups, or casual get-togethers. Pizza is often chosen for these situations because it's easy to share. <br/>
-3. Fridays get busy as people finish work and prepare for the weekend. Ordering pizza is an easy meal choice for those who don't have time or energy to cook
+3. Fridays get busy as people finish work and prepare for the weekend. Ordering pizza is an easy meal choice for those who don't have time or energy to cook. <br/>
+
 
 
