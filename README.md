@@ -51,3 +51,30 @@ ON
 <p align="center" width="30%">
     <img width="30%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/8f16a596-4f97-417f-8900-caca04ed4d5b"> 
 </p>
+<br/>
+### Monhtly Quantity and Revenue
+By analyzing the monthly Quantity, I could identify trends in terms of when pizzas are ordered the most and whether there are any seasonal variations. Additionally, calculating monthly Revenue would provide insights into the revenue generated during different months, helping to identify peak periods and potential areas for improvement in terms of marketing.
+
+```
+SELECT
+  FORMAT_DATE('%B',o.date) AS `Month`,
+  SUM(od.quantity) AS quantity,
+  CONCAT("$ ",SUM(od.quantity * p.price)) AS Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+GROUP BY
+  `Month`;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/030e6095-6e04-46aa-87ab-62b06d737bd4) --->
+<p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/030e6095-6e04-46aa-87ab-62b06d737bd4"> 
+</p>
+
