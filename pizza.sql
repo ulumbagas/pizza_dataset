@@ -1,5 +1,31 @@
 -- trends total quantity of pizzas over time
 
+-- Total Revenue and Total Quantity
+select concat("$ ",sum(od.quantity * p.price)) as Total_Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id;
+
+select sum(od.quantity) as total_quantity
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id;
+
+
 --show monhtly Total quantity and Revenue
 SELECT
   FORMAT_DATE('%B',o.date) AS `Month`,
