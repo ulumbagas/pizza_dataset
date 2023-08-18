@@ -83,5 +83,35 @@ From the analysis results, it can be observed that the highest sales occurred in
 
 1. Summer and Holidays: July is usually in the summertime in many places around the world. During summer, people are often more relaxed and gather together or celebrate events like school holidays. This can make more people want to order fast food like pizza. <br/>
 
-2. Weather and Social Activities: Warmer weather can also have an impact. Those months might have weather conditions that are more suitable for outdoor activities or social gatherings, which can increase the demand for fast food like pizza.
+2. Weather and Social Activities: Warmer weather can also have an impact. Those months might have weather conditions that are more suitable for outdoor activities or social gatherings, which can increase the demand for fast food like pizza. <br/>
+
+### Daily Quantity and Revenue
+The objective of analysis daily Quantity and Revenue is to get a deep insight into daily patterns in pizza sales and revenue. <br/>
+1. Identifying Daily Patterns, by analyzing the daily quantity and income, you can identify daily patterns or trends in sales. This can help you understand when the demand is highest and lowest throughout the day. <br/>
+2. Inventory Management, by knowing the daily sales pattern, you can optimize inventory management. You can ensure that the stock of pizza is sufficient to meet high demand and avoid overstocking in periods of low demand. <br/>
+3. Promotional Optimization, by knowing when sales tend to be lower, you can plan promotions or special offers to drive increased demand at certain times. <br/>
+
+```
+SELECT
+  FORMAT_DATE('%A',o.date) AS `Day`,
+  SUM(od.quantity) AS quantity,
+  Concat("$ ",SUM(od.quantity * p.price)) AS Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+GROUP BY
+  `Day`;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/48055e8d-7d99-47b8-b7e9-1a1cc534ff3f)--->
+<p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/48055e8d-7d99-47b8-b7e9-1a1cc534ff3f"> 
+</p>
+
 
