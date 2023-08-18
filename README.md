@@ -8,8 +8,46 @@ The pizza dataset comprises four tables:
 3. The 'pizzas' table with 4 columns: pizza_id, pizza_type_id, size, price.
 4. The 'pizza_types' table with 4 columns: pizza_type_id, name, category, ingredient.
 
-In total, there have been 48,620 transactions.
+In total, there have been 48,620 transactions. In this analysis, I assume that the currency is in $.
 <br/>
 ### Revenue and Quantity
 The first step in this analysis is to calculate the Total Revenue and Total Quantity from all transactions.
+<br/>
+```
+select concat("$ ",sum(od.quantity * p.price)) as Total_Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/6e5a71c0-fb28-489b-ba34-4919a3910600)--->
 
+<p align="center" width="30%">
+    <img width="30%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/6e5a71c0-fb28-489b-ba34-4919a3910600"> 
+</p>
+<br/>
+
+```
+select sum(od.quantity) as total_quantity
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id;
+```
+<!---[image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/8f16a596-4f97-417f-8900-caca04ed4d5b)--->
+
+<p align="center" width="30%">
+    <img width="30%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/8f16a596-4f97-417f-8900-caca04ed4d5b"> 
+</p>
