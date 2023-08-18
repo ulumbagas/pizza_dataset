@@ -79,7 +79,7 @@ GROUP BY
     <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/030e6095-6e04-46aa-87ab-62b06d737bd4"> 
 </p>
 <br/>
-From the analysis results, it can be observed that the highest sales occurred in the month of July with total revenue $ 72557, followed by May, and then trailed by March. In my opinion, there are several reasons that could possibly explain this phenomenon: <br/>
+From the analysis results, it can be observed that the highest sales occurred in the month of July with total revenue $ 72,557, followed by May, and then trailed by March. In my opinion, there are several reasons that could possibly explain this phenomenon: <br/>
 
 1. Summer and Holidays: July is usually in the summertime in many places around the world. During summer, people are often more relaxed and gather together or celebrate events like school holidays. This can make more people want to order fast food like pizza. <br/>
 
@@ -113,5 +113,11 @@ GROUP BY
 <p align="center" width="50%">
     <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/48055e8d-7d99-47b8-b7e9-1a1cc534ff3f"> 
 </p>
+<br/>
+
+Based on the analysis of the pizza dataset, Friday stands out as the day with the highest weekly sales, generating a revenue of $ 123,528 and total quantity 7478, here are the potential reasons <br/>
+1. Fridays are often associated with the start of the weekend, a time when people are more likely to relax and indulge in convenience foods like pizza. Many individuals might prefer to order in or dine out on Fridays as a way to unwind from the workweek and kick off the weekend. <br/>
+2. Fridays are a favorite day for social gatherings. People often spend time with friends, family, or coworkers after work. There could be events, meetups, or casual get-togethers. Pizza is often chosen for these situations because it's easy to share. <br/>
+3. Fridays get busy as people finish work and prepare for the weekend. Ordering pizza is an easy meal choice for those who don't have time or energy to cook
 
 
