@@ -1,5 +1,5 @@
 # pizza_dataset
-This analysis project focuses on one of the most popular global food icons "pizza" and in this analysis i am using Bigquery. My main goal is to uncover valuable insights from a collection of datasets that encompass various aspects. By carefully analyzing the pizza dataset, we can identify interesting patterns, evolving consumer trends, and perhaps even determine whether there is a relationship between certain factors, such as weather or seasons, and pizza preferences. Through this approach, we hope to provide beneficial insights for the culinary industry. <br/>
+This project focuses on one of the most popular global food icons "pizza" and in this analysis i am using Bigquery. My main goal is to uncover valuable insights from a collection of datasets that encompass various aspects. By carefully analyzing the pizza dataset, we can identify interesting patterns, evolving consumer trends, and perhaps even determine whether there is a relationship between certain factors, such as weather or seasons, and pizza preferences. Through this approach, we hope to provide beneficial insights for the culinary industry. <br/>
 ### About Dataset.
 The pizza dataset comprises four tables:
 
@@ -120,5 +120,46 @@ Based on the analysis of the pizza dataset, Friday stands out as the day with th
 2. Fridays are a favorite day for social gatherings. People often spend time with friends, family, or coworkers after work. There could be events, meetups, or casual get-togethers. Pizza is often chosen for these situations because it's easy to share. <br/>
 3. Fridays get busy as people finish work and prepare for the weekend. Ordering pizza is an easy meal choice for those who don't have time or energy to cook. <br/>
 
+### Daily Date Quantity and Revenue 
+Analyzing Quantity and Revenue on each date in every month in the pizza dataset can involve several important aspects for business understanding and decision-making. <br/>
+1. Understanding Buying Habits: By looking at how many pizzas are sold on each date, you can see when customers tend to buy. This helps identify busy days and plan supplies effectively. For instance, you can spot if certain days of the month have higher sales. <br/>
+2. Sales Trends: By analyzing Revenue (income from sales) on each date, you can recognize sales trends throughout the month. This can help identify periods when revenue is typically higher or lower. This information can be valuable for promotional planning and pricing strategies. <br/>
+
+<!--- [image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/58dcc5f1-799f-41f4-b9e2-ae5dccd8774c)--->
+
+```
+SELECT
+  EXTRACT(Day
+  FROM
+    o.date) AS `Date`,
+  SUM(od.quantity) quantity,
+  Concat("$ ",SUM(od.quantity * p.price)) AS Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id=o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+GROUP BY
+  `Date`;
+```
+<p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/58dcc5f1-799f-41f4-b9e2-ae5dccd8774c"> 
+</p>
+
+Based on the result the highest sales performance occurs in the middle and beginning of the month.  There could be several possible reasons for the  pizza sales performance <br/>
+1. Paycheck Timing: Many people receive their paychecks at the beginning of the month. This influx of disposable income could lead to increased spending on items like pizza as a convenient and enjoyable treat. <br/>
+2. Monthly Routines: People might establish a pattern of dining out or ordering in during specific times of the month, such as the middle and beginning, when they may be more likely to socialize, celebrate, or simply take a break from cooking. <br/>
+3. Social Events: Social activities like sports events, movie nights, or game nights might be planned more often during the middle and beginning of the month, and pizza is a popular choice for such gatherings. <br/>
+
+### Total quantity and Revenue each Hour
+Analyzing the total quantity and revenue each hour can help you understand your customers, how your business runs, and revenue pattern. here are the potential reasons <br/>
+1. Peak Sales Hours: Analyzing total quantity and revenue each hour can help identify the peak sales hours throughout the day. This information can be used to allocate resources, such as staff and ingredients, more effectively during these busy periods. <br/>
+2. Promotions: When we know the busiest times for sales, we can plan when to offer special deals or discounts. This can help bring in more orders during the slower hours. <br/>
+3. Demand Forecasting: By analyzing hourly sales we can guess how many orders we might get in the future. This helps us get ready with enough ingredients and staff for busy times. <br/>
 
 
