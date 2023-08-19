@@ -162,4 +162,29 @@ Analyzing the total quantity and revenue each hour can help you understand your 
 2. Promotions: When we know the busiest times for sales, we can plan when to offer special deals or discounts. This can help bring in more orders during the slower hours. <br/>
 3. Demand Forecasting: By analyzing hourly sales we can guess how many orders we might get in the future. This helps us get ready with enough ingredients and staff for busy times. <br/>
 
+```
+SELECT
+  EXTRACT(HOUR FROM `time`) AS Hour,
+  SUM(od.quantity) AS Quantity,
+  Concat("$ ",SUM(od.quantity * p.price)) AS Revenue
+FROM
+  `pizza.order_details` od
+JOIN
+  `pizza.orders` o
+ON
+  od.order_id=o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+GROUP BY
+  Hour;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/63dce195-5934-45de-ba2f-5912f7eff97e)
+ --->
+<p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/63dce195-5934-45de-ba2f-5912f7eff97e"> 
+</p>
+<br/>
+Based on the analysis, sales began at 09:00 and ended at 23:00. Peak sales occurred from 12:00 to 13:00, followed by 17:00 to 18:00. The peak sales from 12:00 to 13:00 could be attributed to the lunchtime rush. Many people prefer ordering food during their lunch breaks, and pizza is a convenient and quick option. People like ordering pizza in the late afternoon, around 17:00 to 18:00. This might be because they want a  snack or an early dinner. After a busy day at work or school, they want something tasty and easy to eat. <br/>
 
