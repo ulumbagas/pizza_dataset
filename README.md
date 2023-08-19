@@ -214,3 +214,34 @@ order by Revenue;
 </p>
 
 From the analysis results, it is evident that <b> The Thai Chicken Pizza </b> has the highest revenue. However, in terms of quantity, both <b>The Barbecue Chicken Pizza</b> and <b>The Classic Deluxe Pizza</b> have higher numbers. This difference could be due to <b>The Thai Chicken Pizza</b> having a higher price per unit compared to <b>The Barbecue Chicken Pizza</b> and <b>The Classic Deluxe Pizza</b>. Furthermore, the size of the pizzas being sold also influences the price. As a result, the prices for each pizza based on their sizes will be presented next.
+
+### Summarizing Pizza name, Size, and Price
+```
+SELECT
+  pt.name AS name,
+  p.size AS size,
+  p.price, 
+  sum(od.quantity) as Total_quantity, sum(od.quantity * p.price) as Total_price
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.orders` o
+ON
+  od.order_id = o.order_id
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+LEFT JOIN
+  `pizza.pizza_type` pt
+ON
+  p.pizza_type_id = pt.pizza_type_id
+where name in ('The Thai Chicken Pizza','The Barbecue Chicken Pizza','The Classic Deluxe Pizza')
+GROUP BY name, size, p.price;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/7db741a1-8cf4-40b6-bd25-11716b7782c0)
+ --->
+
+ <p align="center" width="75%">
+    <img width="75%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/7db741a1-8cf4-40b6-bd25-11716b7782c0"> 
+</p>
