@@ -188,3 +188,29 @@ GROUP BY
 <br/>
 Based on the analysis, sales began at 09:00 and ended at 23:00. Peak sales occurred from 12:00 to 13:00, followed by 17:00 to 18:00. The peak sales from 12:00 to 13:00 could be attributed to the lunchtime rush. Many people prefer ordering food during their lunch breaks, and pizza is a convenient and quick option. People like ordering pizza in the late afternoon, around 17:00 to 18:00. This might be because they want a  snack or an early dinner. After a busy day at work or school, they want something tasty and easy to eat. <br/>
 
+### Pizza with the Highest Revenue
+Analyzing the pizza that generates the most revenue provides insights into customer preferences. Understanding what customers like  and marketing strategies to fill to their demand.
+
+```
+SELECT
+  pt.name as name, sum(od.quantity) as Total_Quantity, sum(od.quantity * p.price) as Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+left join 
+ `pizza.pizza_type` pt
+ON
+p.pizza_type_id = pt.pizza_type_id
+group by name
+order by Revenue;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/8c8a2775-e757-49cf-bc36-7ca0357d06f4)
+ --->
+ <p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/8c8a2775-e757-49cf-bc36-7ca0357d06f4"> 
+</p>
+
+From the analysis results, it is evident that <b> The Thai Chicken Pizza </b> has the highest revenue. However, in terms of quantity, both <b>The Barbecue Chicken Pizza</b> and <b>The Classic Deluxe Pizza</b> have higher numbers. This difference could be due to <b>The Thai Chicken Pizza</b> having a higher price per unit compared to <b>The Barbecue Chicken Pizza</b> and <b>The Classic Deluxe Pizza</b>. Furthermore, the size of the pizzas being sold also influences the price. As a result, the prices for each pizza based on their sizes will be presented next.
