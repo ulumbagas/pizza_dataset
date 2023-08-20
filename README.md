@@ -245,3 +245,9 @@ GROUP BY name, size, p.price;
  <p align="center" width="75%">
     <img width="75%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/7db741a1-8cf4-40b6-bd25-11716b7782c0"> 
 </p>
+Based on the comparison results of the pizzas above, I have drawn two conclusions: <br/>
+
+1. The price for each size of The Barbecue Chicken Pizza is higher compared to The Classic Deluxe Pizza. However, the sales of The Classic Deluxe Pizza are only significant for size M. On the other hand, The Barbecue Chicken Pizza's sales are high for two sizes, L and M, which collectively impact the total revenue <br/>
+
+2. The price per unit for The Barbecue Chicken Pizza and The Thai Chicken Pizza is the same. The difference lies in the total number of orders, where The Thai Chicken Pizza is only high in one size, which is L, while The Barbecue Chicken Pizza is high in two sizes, L and M, which impacts the total revenue. <br/>
+
