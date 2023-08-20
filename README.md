@@ -251,3 +251,40 @@ Based on the comparison results of the pizzas above, I have drawn two conclusion
 
 2. The price per unit for The Barbecue Chicken Pizza and The Thai Chicken Pizza is the same. The difference lies in the total number of orders, where The Thai Chicken Pizza is only high in one size, which is L, while The Barbecue Chicken Pizza is high in two sizes, L and M, which impacts the total revenue. <br/>
 
+### Size Percentage
+```
+SELECT
+  p.size AS size, ROUND(SUM(od.quantity * p.price),2) Total_revenue
+  (SUM(od.quantity * p.price)/(
+    SELECT
+      SUM(od.quantity * p.price)
+    FROM
+      `pizza.order_details` od
+    LEFT JOIN
+      `pizza.pizzas` p
+    ON
+      od.pizza_id = p.pizza_id
+    LEFT JOIN
+      `pizza.pizza_type` pt
+    ON
+      p.pizza_type_id = pt.pizza_type_id))*100 AS percentage_Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+LEFT JOIN
+  `pizza.pizza_type` pt
+ON
+  p.pizza_type_id = pt.pizza_type_id
+GROUP BY
+  size;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/07e70247-535e-41a4-b6ec-dbc99a1b0d6c)
+ --->
+<p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/07e70247-535e-41a4-b6ec-dbc99a1b0d6c"> 
+</p>
+<br/>
+Based on the above analysis, pizza sales by size reveal that size L has the highest revenue, exceeding $300,000  and is the most favored by customers, accounting for 45% of total sales. <br/>
