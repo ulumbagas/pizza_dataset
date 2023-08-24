@@ -1,5 +1,6 @@
 # pizza_dataset
-This project focuses on one of the most popular global food icons "pizza" and in this analysis i am using Bigquery. My main goal is to uncover valuable insights from a collection of datasets that encompass various aspects. By carefully analyzing the pizza dataset, we can identify interesting patterns, evolving consumer trends, and perhaps even determine whether there is a relationship between certain factors, such as weather or seasons, and pizza preferences. Through this approach, we hope to provide beneficial insights for the culinary industry. <br/>
+This project focuses on one of the most popular global food icons "pizza" and in this analysis i am using Bigquery. My main objective is to examine valuable insights from the dataset. By carefully analyzing the pizza dataset, we can identify interesting patterns, evolving consumer trends, and perhaps even determine whether there is a relationship between certain factors, such as weather or seasons, and pizza preferences. Through this approach, i hope to provide beneficial insights for the culinary industry. <br/>
+
 ### About Dataset.
 The pizza dataset comprises four tables:
 
@@ -8,7 +9,7 @@ The pizza dataset comprises four tables:
 3. The 'pizzas' table with 4 columns: pizza_id, pizza_type_id, size, price.
 4. The 'pizza_types' table with 4 columns: pizza_type_id, name, category, ingredient.
 
-In total, there have been 48,620 transactions. In this analysis, I assume that the currency is in $.
+In total, there have been 48,620 transactions. In this analysis, and in this dataset i assume that the currency is in $.
 <br/>
 ### Revenue and Quantity
 The first step in this analysis is to calculate the Total Revenue and Total Quantity from all transactions.
