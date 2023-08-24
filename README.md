@@ -290,7 +290,7 @@ GROUP BY
 Based on the above analysis, pizza sales by size reveal that size L has the highest revenue, exceeding $300,000  and is the most favored by customers, accounting for 45% of total sales. <br/>
 
 ### Revenue by Category
-Next, i will display revenue per category to see which category has the highest revenue
+Next, i will show revenue per category to see which category has the highest revenue
 ```
 SELECT
   pt.category as category, sum(od.quantity) as Total_Quantity, ROUND(sum(od.quantity * p.price),2) as Revenue
@@ -310,4 +310,42 @@ order by Revenue DESC;
 <!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/40a387cd-a7f2-455f-8967-fca9d92b2c47)--->
 <p align="center" width="50%">
     <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/40a387cd-a7f2-455f-8967-fca9d92b2c47"> 
+</p>
+<br/>
+Based on the analysis results, it is evident that the "Classic" category ranks first with a revenue of $220,053.1 and a total quantity of 14,888. next I will show top 2 pizza name each category by revenue. <br/>
+
+```
+SELECT
+  rank() over(partition by category order by revenue desc) as `Rank`,
+  category,
+  name,
+  round(revenue,2) as revenue
+FROM (
+  SELECT
+    pt.category AS category,
+    pt.name AS name,
+    SUM(od.quantity * p.price) AS revenue,
+    RANK() OVER(PARTITION BY category ORDER BY SUM(od.quantity * p.price) DESC) AS number
+  FROM
+    `pizza.order_details` od
+  LEFT JOIN
+    `pizza.pizzas` p
+  ON
+    od.pizza_id = p.pizza_id
+  LEFT JOIN
+    `pizza.pizza_type` pt
+  ON
+    p.pizza_type_id = pt.pizza_type_id
+  GROUP BY
+    category,
+    name
+  ORDER BY
+    revenue DESC,
+    category DESC) ranked
+WHERE
+  number <3;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/c4a9fbda-53c9-4389-baeb-dbd1add667a5)--->
+<p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/c4a9fbda-53c9-4389-baeb-dbd1add667a5"> 
 </p>
