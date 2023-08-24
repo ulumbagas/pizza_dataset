@@ -288,3 +288,26 @@ GROUP BY
 </p>
 <br/>
 Based on the above analysis, pizza sales by size reveal that size L has the highest revenue, exceeding $300,000  and is the most favored by customers, accounting for 45% of total sales. <br/>
+
+### Revenue by Category
+Next, i will display revenue per category to see which category has the highest revenue
+```
+SELECT
+  pt.category as category, sum(od.quantity) as Total_Quantity, ROUND(sum(od.quantity * p.price),2) as Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+left join 
+ `pizza.pizza_type` pt
+ON
+p.pizza_type_id = pt.pizza_type_id
+group by category
+order by Revenue DESC;
+```
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/40a387cd-a7f2-455f-8967-fca9d92b2c47)--->
+<p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/40a387cd-a7f2-455f-8967-fca9d92b2c47"> 
+</p>
