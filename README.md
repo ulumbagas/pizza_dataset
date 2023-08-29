@@ -351,4 +351,4 @@ WHERE
     <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/c4a9fbda-53c9-4389-baeb-dbd1add667a5"> 
 </p>
 <br/>
-
+Based on the analysis above, we can identify the pizzas with the highest sales in each category. Therefore, sellers can understand the ingredients used in those pizzas and optimize the raw material requirements.
