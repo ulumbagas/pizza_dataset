@@ -153,7 +153,7 @@ GROUP BY
 </p>
 
 Based on the result the highest sales performance occurs in the middle and beginning of the month.  There could be several possible reasons for the  pizza sales performance <br/>
-1. Paycheck Timing: Many people receive their paychecks at the beginning of the month. This influx of disposable income could lead to increased spending on items like pizza as a convenient and enjoyable treat. <br/>
+1. Paydays, in my assumtion many people receive their paychecks at the beginning or middle of the month. This could mean that more people have money to spend, including on food like pizza to convenient and enjoyable treat. <br/>
 2. Monthly Routines: People might establish a pattern of dining out or ordering in during specific times of the month, such as the middle and beginning, when they may be more likely to socialize, celebrate, or simply take a break from cooking. <br/>
 3. Social Events: Social activities like sports events, movie nights, or game nights might be planned more often during the middle and beginning of the month, and pizza is a popular choice for such gatherings. <br/>
 
@@ -350,3 +350,5 @@ WHERE
 <p align="center" width="50%">
     <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/c4a9fbda-53c9-4389-baeb-dbd1add667a5"> 
 </p>
+<br/>
+
