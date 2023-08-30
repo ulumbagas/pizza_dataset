@@ -15,7 +15,8 @@ In total, there have been 48,620 transactions. In this analysis, and in this dat
 The first step in this analysis is to calculate the Total Revenue and Total Quantity from all transactions.
 <br/>
 ```
-select concat("$ ",sum(od.quantity * p.price)) as Total_Revenue
+select concat("$ ",sum(od.quantity * p.price)) as Total_Revenue,
+sum(od.quantity) as total_quantity
 FROM
   `pizza.order_details` od
 LEFT JOIN
@@ -27,32 +28,11 @@ LEFT JOIN
 ON
   od.pizza_id = p.pizza_id;
 ```
-<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/6e5a71c0-fb28-489b-ba34-4919a3910600)--->
-
-<p align="center" width="30%">
-    <img width="30%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/6e5a71c0-fb28-489b-ba34-4919a3910600"> 
+<!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/1d60edcf-d9f5-41b6-a6c6-861551b403c7) --->
+<p align="center" width="50%">
+    <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/1d60edcf-d9f5-41b6-a6c6-861551b403c7"> 
 </p>
-<br/>
 
-```
-select sum(od.quantity) as total_quantity
-FROM
-  `pizza.order_details` od
-LEFT JOIN
-  `pizza.orders` o
-ON
-  od.order_id = o.order_id
-LEFT JOIN
-  `pizza.pizzas` p
-ON
-  od.pizza_id = p.pizza_id;
-```
-<!---[image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/8f16a596-4f97-417f-8900-caca04ed4d5b)--->
-
-<p align="center" width="30%">
-    <img width="30%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/8f16a596-4f97-417f-8900-caca04ed4d5b"> 
-</p>
-<br/>
 
 ### Monthly Quantity and Revenue
 By analyzing the monthly Quantity, I could identify trends in terms of when pizzas are ordered the most and whether there are any seasonal variations. Additionally, calculating monthly Revenue would provide insights into the revenue generated during different months, helping to identify peak periods and potential areas for improvement in terms of marketing.
