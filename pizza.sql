@@ -239,3 +239,33 @@ p.pizza_type_id = pt.pizza_type_id
 group by category
 order by Revenue DESC;
 
+--top 2 pizza name each category by revenue
+SELECT
+  rank() over(partition by category order by revenue desc) as `Rank`,
+  category,
+  name,
+  round(revenue,2) as revenue
+FROM (
+  SELECT
+    pt.category AS category,
+    pt.name AS name,
+    SUM(od.quantity * p.price) AS revenue,
+    RANK() OVER(PARTITION BY category ORDER BY SUM(od.quantity * p.price) DESC) AS number
+  FROM
+    `pizza.order_details` od
+  LEFT JOIN
+    `pizza.pizzas` p
+  ON
+    od.pizza_id = p.pizza_id
+  LEFT JOIN
+    `pizza.pizza_type` pt
+  ON
+    p.pizza_type_id = pt.pizza_type_id
+  GROUP BY
+    category,
+    name
+  ORDER BY
+    revenue DESC,
+    category DESC) ranked
+WHERE
+  number <3;
