@@ -193,3 +193,35 @@ ON
   p.pizza_type_id = pt.pizza_type_id
 group by name, size
 order by name;
+
+--Size Percentage
+SELECT
+  p.size AS size, ROUND(SUM(od.quantity * p.price),2) Total_revenue
+  (SUM(od.quantity * p.price)/(
+    SELECT
+      SUM(od.quantity * p.price)
+    FROM
+      `pizza.order_details` od
+    LEFT JOIN
+      `pizza.pizzas` p
+    ON
+      od.pizza_id = p.pizza_id
+    LEFT JOIN
+      `pizza.pizza_type` pt
+    ON
+      p.pizza_type_id = pt.pizza_type_id))*100 AS percentage_Revenue
+FROM
+  `pizza.order_details` od
+LEFT JOIN
+  `pizza.pizzas` p
+ON
+  od.pizza_id = p.pizza_id
+LEFT JOIN
+  `pizza.pizza_type` pt
+ON
+  p.pizza_type_id = pt.pizza_type_id
+GROUP BY
+  size;
+
+
+
