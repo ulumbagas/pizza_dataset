@@ -2,14 +2,34 @@
 This project focuses on one of the most popular global food icons "pizza" and in this analysis i am using Bigquery. My main objective is to examine valuable insights from the dataset. By carefully analyzing the pizza dataset, we can identify interesting patterns, evolving consumer trends, and perhaps even determine whether there is a relationship between certain factors, such as weather or seasons, and pizza preferences. Through this approach, i hope to provide beneficial insights for the culinary industry. <br/>
 
 ### About Dataset.
-The pizza dataset comprises four tables:
+In this dataset was obtained from Kaggle. It has 48,620 transactions and consists of 4 table.
 
-1. The 'order' table with 4 columns: order_id, date, time.
-2. The 'order_detail' table with 4 columns: order_id, order_details_id, pizza_id, quantity.
-3. The 'pizzas' table with 4 columns: pizza_id, pizza_type_id, size, price.
-4. The 'pizza_types' table with 4 columns: pizza_type_id, name, category, ingredient.
+Order table
 
-In total, there have been 48,620 transactions. In this analysis, and in this dataset i assume that the currency is in $.
+- Order_id		   : Unique identifier for each order placed by a table
+- Date			   : Date the order was placed 
+- Time			   : Time the order was placed
+
+Order_details table
+
+- Order_details_id : Unique identifier for each pizza placed within each order
+- Order_id		  : Foreign key that ties the details in each order to the - - order itself
+- Pizza_id		   : Foreign key that ties the pizza ordered to its details
+- Quantity		   :  ordered for each pizza of the same type and size
+
+Pizzas
+
+- Pizza_id		: Unique identifier for each pizza
+- Pizza_type_id	: Foreign key that ties each pizza to its broader pizza type
+- Size			: Size of the pizza
+- Price		: Price of the pizza in USD
+
+Pizza_types
+
+- Pizza_type_id	: Unique identifier for each pizza type
+- Name		: Name of the pizza as shown in the menu
+- Category		: Category that the pizza fall under in the menu
+- ingredients 	:Comma-delimited ingredients used in the pizza as shown in the menu 
 <br/>
 ### Revenue and Quantity
 The first step in this analysis is to calculate the Total Revenue and Total Quantity from all transactions.
