@@ -31,9 +31,12 @@ Pizza_types
 - Category		: Category that the pizza fall under in the menu
 - ingredients 	:Comma-delimited ingredients used in the pizza as shown in the menu 
 <br/>
+
 ### Revenue and Quantity
 The first step in this analysis is to calculate the Total Revenue and Total Quantity from all transactions.
+
 <br/>
+
 ```
 select concat("$ ",sum(od.quantity * p.price)) as Total_Revenue,
 sum(od.quantity) as total_quantity
@@ -48,6 +51,7 @@ LEFT JOIN
 ON
   od.pizza_id = p.pizza_id;
 ```
+
 <!--- ![image](https://github.com/ulumbagas/pizza_dataset/assets/58242856/1d60edcf-d9f5-41b6-a6c6-861551b403c7) --->
 <p align="center" width="50%">
     <img width="50%" src="https://github.com/ulumbagas/pizza_dataset/assets/58242856/1d60edcf-d9f5-41b6-a6c6-861551b403c7"> 
